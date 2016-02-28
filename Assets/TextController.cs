@@ -9,16 +9,21 @@ public class TextController : MonoBehaviour {
 						 backDoor_1, backDoor_2, keysPanel_0, death_0, death_1, death_2,
 						 death_3, death_4, phone_0, phone_1, police};
 						 
+	//Current state
 	private States myState;
-	public Text text;
 	private int timesDead = 0;
 	private bool updateDead = true;
+	
+	public Text text;
+	//-----------------------------------------------------------------------------------
 	// Use this for initialization
 	void Start () 
 	{
 		myState = States.presentation;
 	}
 	
+	//-----------------------------------------------------------------------------------
+	//Presentation state, showing the main story
 	void Presenation()
 	{
 		text.text = "You are in a SuperMarket when suddenly one masked thieve points a gun to the dependant. "+
@@ -27,7 +32,7 @@ public class TextController : MonoBehaviour {
 		
 		if(Input.GetKeyDown(KeyCode.Space))       {myState = States.farShelf_0;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void FarShelf()
 	{
 		text.text = "Yo can hear the thief making some noises, but you can't see him."+
@@ -40,7 +45,7 @@ public class TextController : MonoBehaviour {
 		else if(Input.GetKeyDown(KeyCode.T))  {myState = States.closeShelf_0;}
 		else if(Input.GetKeyDown(KeyCode.C))  {myState = States.can;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void Exit0()
 	{
 		text.text = "You get next to the exit door, but there is another thief outside waiting!\n" +
@@ -51,7 +56,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.farShelf_0;}
 		else if(Input.GetKeyDown(KeyCode.E))  {myState = States.death_0;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void Death0()
 	{
 		if(updateDead)
@@ -71,6 +76,7 @@ public class TextController : MonoBehaviour {
 			myState = States.presentation;
 		}
 	}
+	//-----------------------------------------------------------------------------------
 	void Death1()
 	{
 		if(updateDead)
@@ -90,7 +96,7 @@ public class TextController : MonoBehaviour {
 			myState = States.presentation;
 		}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void Death2()
 	{
 		if(updateDead)
@@ -110,6 +116,7 @@ public class TextController : MonoBehaviour {
 			myState = States.presentation;
 		}
 	}
+	//-----------------------------------------------------------------------------------
 	void Death3()
 	{
 		if(updateDead)
@@ -129,6 +136,7 @@ public class TextController : MonoBehaviour {
 			myState = States.presentation;
 		}
 	}
+	//-----------------------------------------------------------------------------------
 	void Death4()
 	{
 		if(updateDead)
@@ -148,6 +156,7 @@ public class TextController : MonoBehaviour {
 			myState = States.presentation;
 		}
 	}
+	//-----------------------------------------------------------------------------------
 	void CloseShelf_0()
 	{
 		text.text = "You can see the thief shouting to the dependant and holding a big gun. He can't see you but he looks really nervous. " +
@@ -156,7 +165,7 @@ public class TextController : MonoBehaviour {
 					
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.farShelf_0;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void Can()
 	{
 		text.text = "You have now a big heavy Tomato soup can." +
@@ -170,7 +179,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.E))       {myState = States.exit_1;}
 		if(Input.GetKeyDown(KeyCode.T))       {myState = States.closeShelf_1;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void CloseShelf_1()
 	{
 		text.text = "The thief has moved away so this is your oportunity to try something."+
@@ -184,7 +193,7 @@ public class TextController : MonoBehaviour {
 		else if(Input.GetKeyDown(KeyCode.B))       {myState = States.backDoor_0;}
 		else if(Input.GetKeyDown(KeyCode.T))       {myState = States.keysPanel_0;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void Exit1()
 	{
 		text.text = "You get next to the exit door, but there is another thief outside waiting!\n" +
@@ -195,7 +204,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.can;}
 		else if(Input.GetKeyDown(KeyCode.E))  {myState = States.death_1;}
 	}
-
+	//-----------------------------------------------------------------------------------
 	void Exit2()
 	{
 		text.text = "The exit door is open, and you can see another thief outside.\n" +
@@ -206,7 +215,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.closeShelf_1;}
 		else if(Input.GetKeyDown(KeyCode.E))  {myState = States.death_2;}
 	}
-		
+	//-----------------------------------------------------------------------------------
 	void BackDoor0()
 	{
 		text.text = "You are close to the back door which has a windows. Inside you can see a phone booth.\n" +
@@ -217,6 +226,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.closeShelf_1;}
 		else if(Input.GetKeyDown(KeyCode.T))   {myState = States.keysPanel_0;}
 	}
+	//-----------------------------------------------------------------------------------
 	void BackDoor1()
 	{
 		text.text = "You are close to the back door which has a windows. Inside you can see a phone booth.\n" +
@@ -227,6 +237,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.keysPanel_0;}
 		else if(Input.GetKeyDown(KeyCode.P))   {myState = States.phone_0;}
 	}
+	//-----------------------------------------------------------------------------------
 	void BackDoor2()
 	{
 		text.text = "You are close to the back door which has a windows. Inside you can see a phone booth.\n" +
@@ -237,6 +248,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.keysPanel_0;}
 		else if(Input.GetKeyDown(KeyCode.P))   {myState = States.phone_1;}
 	}
+	//-----------------------------------------------------------------------------------
 	void KeyPanel0()
 	{
 		text.text = "Next to the till you can see some keys. It should open something so beter get it.\n" +
@@ -249,6 +261,7 @@ public class TextController : MonoBehaviour {
 		else if(Input.GetKeyDown(KeyCode.B))       {myState = States.backDoor_1;}
 		if(Input.GetKeyDown(KeyCode.M))       {myState = States.backDoor_2;}
 	}
+	//-----------------------------------------------------------------------------------
 	void Phone0()
 	{
 		text.text = "You catch the phone and press 112. \"Please, insert some coins\" you hear." +
@@ -260,6 +273,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.R))       {myState = States.backDoor_1;}
 		else if(Input.GetKeyDown(KeyCode.C))   {myState = States.death_3;}
 	}
+	//-----------------------------------------------------------------------------------
 	void Phone1()
 	{
 		text.text = "You catch the phone and press 112. \"Please, insert some coins\" you hear." +
@@ -270,7 +284,7 @@ public class TextController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.P))       {myState = States.police;}
 		else if(Input.GetKeyDown(KeyCode.H))   {myState = States.death_4;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	void Police()
 	{
 		text.text = "\"Hello? Police? I need some help please! The supermarket has been attack and I dont know how much time can I be hidden.\" you hear.\n" +
@@ -283,8 +297,9 @@ public class TextController : MonoBehaviour {
 		
 		if(Input.GetKeyDown(KeyCode.R)|| Input.GetKeyDown(KeyCode.Space))       {myState = States.presentation;}
 	}
-	
+	//-----------------------------------------------------------------------------------
 	// Update is called once per frame
+	// Here we update the state machine depending of the user input
 	void Update ()
 	 {
 		if(myState == States.presentation)      	{Presenation();}
@@ -308,4 +323,5 @@ public class TextController : MonoBehaviour {
 		else if( myState == States.phone_1)     	{Phone1();}
 		else if( myState == States.police)     		{Police();}
 	}
+	//-----------------------------------------------------------------------------------
 }
